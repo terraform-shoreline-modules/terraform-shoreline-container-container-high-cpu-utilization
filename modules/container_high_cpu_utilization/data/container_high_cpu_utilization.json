@@ -3,11 +3,11 @@
   "description": "Container high CPU utilization is an incident type that occurs when a container's CPU utilization exceeds a certain threshold. It may indicate an issue with the containerized application or the container itself, and can potentially cause performance issues or even service downtime. This incident type requires immediate attention to identify the root cause and take necessary actions to prevent further impact.",
   "params": [
     {
-      "name": "PROCESS_NAME",
+      "name": "CPU_LIMIT",
       "value": ""
     },
     {
-      "name": "CPU_LIMIT",
+      "name": "PROCESS_NAME",
       "value": ""
     },
     {
@@ -188,7 +188,7 @@
       "name": "cell_27",
       "type": "OP_LANG",
       "enabled": true,
-      "content": "host | host_name=$HOST_NAME | invoke_container_cpu_utilization($CPU_LIMIT, $CONTAINER_NAME)"
+      "content": "host | host_name=$HOST_NAME | invoke_cpu_utilization($CPU_LIMIT, $CONTAINER_NAME)"
     },
     {
       "name": "cell_28",
@@ -200,7 +200,7 @@
       "name": "cell_29",
       "type": "OP_LANG",
       "enabled": true,
-      "content": "host | host_name=$HOST_NAME | invoke_update_cpu_limits($CPU_LIMIT, $CONTAINER_NAME)"
+      "content": "host | host_name=$HOST_NAME | invoke_update_container_cpu_limits($CPU_LIMIT, $CONTAINER_NAME)"
     }
   ]
 }
